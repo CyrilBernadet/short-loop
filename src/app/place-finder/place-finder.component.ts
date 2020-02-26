@@ -32,10 +32,7 @@ export class PlaceFinderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     const autocomplete = new google.maps.places.Autocomplete(
-      this.searchElementRef.nativeElement,
-      {
-        types: ['address']
-      }
+      this.searchElementRef.nativeElement
     );
 
     autocomplete.addListener('place_changed', () => {
