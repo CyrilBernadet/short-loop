@@ -1,5 +1,17 @@
 .place-item {
   padding: 0.5vw;
+
+  div {
+    display: inline-block;
+  }
+
+  .place-name {
+    width: 80%;
+  }
+
+  .place-delete {
+    cursor: pointer;
+  }
 }
 
 .title {
