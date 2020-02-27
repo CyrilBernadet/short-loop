@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'slp-map',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
   center: google.maps.LatLngLiteral;
+
+  public searchControl: FormControl;
 
   constructor() {}
 
