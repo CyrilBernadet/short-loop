@@ -1,0 +1,19 @@
+<div>
+  <div class="place-item title">
+    Point de départ
+  </div>
+  <div class="place-item" *ngIf="start" >
+    {{ start.name }}
+  </div>
+  <div class="place-item title">
+    Liste des adresses
+  </div>
+  <div
+    class="place-item"
+    *ngFor="let place of places"
+    (click)="removePlaceFromList(place)"
+  >
+    <span>{{ place.name }}</span>
+    <span></span>
+  </div>
+</div>

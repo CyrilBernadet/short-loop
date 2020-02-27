@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class MapComponent implements OnInit {
   center: google.maps.LatLngLiteral;
 
+  startPlace: google.maps.places.PlaceResult;
+  placesList: google.maps.places.PlaceResult[];
+
   constructor() {}
 
   ngOnInit(): void {

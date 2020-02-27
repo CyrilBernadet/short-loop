@@ -1,0 +1,11 @@
+.place-finder {
+  position: absolute;
+  top: 35%;
+  left: 5px;
+  transform: translate(0, -50%);
+  width: 15vw;
+  z-index: 100;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
