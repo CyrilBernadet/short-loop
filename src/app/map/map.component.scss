@@ -1,5 +1,16 @@
 .place-finder {
   position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 0 1vw;
+  width: 20vw;
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+.place-list {
+  position: absolute;
   top: 35%;
   left: 5px;
   transform: translate(0, -50%);
