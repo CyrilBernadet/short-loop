@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { GoogleMap } from '@angular/google-maps';
 
 @Component({
   selector: 'slp-map',
@@ -7,9 +8,14 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
+  @ViewChild(GoogleMap) map: GoogleMap;
+
   center: google.maps.LatLngLiteral;
 
-  public searchControl: FormControl;
+  startPlace: google.maps.places.PlaceResult;
+  placesList: google.maps.places.PlaceResult[] = [];
+
+  searchControl: FormControl;
 
   constructor() {}
 
@@ -20,5 +26,23 @@ export class MapComponent implements OnInit {
         lng: position.coords.longitude
       };
     });
+  }
+
+  selectPlace(place: google.maps.places.PlaceResult) {
+    if (!this.startPlace) {
+      this.startPlace = place;
+    } else {
+      this.placesList.push(place);
+    }
+
+    this.map.center = place.geometry.location;
+  }
+
+  removeStart() {
+    this.startPlace = null;
+  }
+
+  removePlaceFromList(place: google.maps.places.PlaceResult) {
+    this.placesList.splice(this.placesList.indexOf(place), 1);
   }
 }

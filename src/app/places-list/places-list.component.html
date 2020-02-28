@@ -1,0 +1,22 @@
+<div>
+  <div class="place-item title">
+    Point de départ
+  </div>
+  <div class="place-item" *ngIf="start">
+    <div class="place-name">
+      {{ start.name }}
+    </div>
+    <div class="place-delete">
+      <mat-icon (click)="removeStart()">delete</mat-icon>
+    </div>
+  </div>
+  <div class="place-item title">
+    Liste des adresses
+  </div>
+  <div class="place-item" *ngFor="let place of places">
+    <div class="place-name">{{ place.name }}</div>
+    <div class="place-delete">
+      <mat-icon (click)="removePlaceFromList(place)">delete</mat-icon>
+    </div>
+  </div>
+</div>
