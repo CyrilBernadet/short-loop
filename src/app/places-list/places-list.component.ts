@@ -13,6 +13,10 @@ export class PlacesListComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  removeStart() {
+    this.start = null;
+  }
+
   removePlaceFromList(place: google.maps.places.PlaceResult) {
     this.places.splice(this.places.indexOf(place), 1);
   }

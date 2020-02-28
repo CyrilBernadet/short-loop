@@ -3,7 +3,12 @@
     Point de départ
   </div>
   <div class="place-item" *ngIf="start">
-    {{ start.name }}
+    <div class="place-name">
+      {{ start.name }}
+    </div>
+    <div class="place-delete">
+      <mat-icon (click)="removeStart()">delete</mat-icon>
+    </div>
   </div>
   <div class="place-item title">
     Liste des adresses
