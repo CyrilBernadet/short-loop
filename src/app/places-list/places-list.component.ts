@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'slp-places-list',
@@ -9,15 +9,20 @@ export class PlacesListComponent implements OnInit {
   @Input() start: google.maps.places.PlaceResult;
   @Input() places: google.maps.places.PlaceResult[];
 
+  @Output() removeStartPlace: EventEmitter<void> = new EventEmitter();
+  @Output() removePlace: EventEmitter<
+    google.maps.places.PlaceResult
+  > = new EventEmitter();
+
   constructor() {}
 
   ngOnInit(): void {}
 
   removeStart() {
-    this.start = null;
+    this.removeStartPlace.emit();
   }
 
   removePlaceFromList(place: google.maps.places.PlaceResult) {
-    this.places.splice(this.places.indexOf(place), 1);
+    this.removePlace.emit(place);
   }
 }

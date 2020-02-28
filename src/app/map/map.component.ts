@@ -37,4 +37,12 @@ export class MapComponent implements OnInit {
 
     this.map.center = place.geometry.location;
   }
+
+  removeStart() {
+    this.startPlace = null;
+  }
+
+  removePlaceFromList(place: google.maps.places.PlaceResult) {
+    this.placesList.splice(this.placesList.indexOf(place), 1);
+  }
 }
