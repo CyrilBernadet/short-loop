@@ -1,3 +1,4 @@
+import { Path } from './../models/path';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { GoogleMap } from '@angular/google-maps';
@@ -14,6 +15,8 @@ export class MapComponent implements OnInit {
 
   startPlace: google.maps.places.PlaceResult;
   placesList: google.maps.places.PlaceResult[] = [];
+
+  shortestPath: Path;
 
   searchControl: FormControl;
 
@@ -44,5 +47,9 @@ export class MapComponent implements OnInit {
 
   removePlaceFromList(place: google.maps.places.PlaceResult) {
     this.placesList.splice(this.placesList.indexOf(place), 1);
+  }
+
+  pathsCompute(path: Path) {
+    this.shortestPath = path;
   }
 }

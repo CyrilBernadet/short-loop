@@ -20,3 +20,15 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
+
+.path-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 1vh 1vw;
+}
