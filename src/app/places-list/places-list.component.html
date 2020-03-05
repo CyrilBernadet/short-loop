@@ -19,4 +19,10 @@
       <mat-icon (click)="removePlaceFromList(place)">delete</mat-icon>
     </div>
   </div>
+  <div class="button-panel" *ngIf="start && places && places.length">
+    <button mat-raised-button (click)="compute()">
+      Calculer
+      <mat-spinner *ngIf="isComputing"  class="load-spinner" diameter="20"></mat-spinner>
+    </button>
+  </div>
 </div>

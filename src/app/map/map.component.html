@@ -9,8 +9,14 @@
       [start]="startPlace"
       (removeStartPlace)="removeStart()"
       (removePlace)="removePlaceFromList($event)"
+      (pathsCompute)="pathsCompute($event)"
     ></slp-places-list>
   </div>
+
+  <div class="path-display" *ngIf="shortestPath">
+    <slp-path-display [path]="shortestPath"></slp-path-display>
+  </div>
+
   <google-map height="100vh" width="100vw" [center]="center">
     <map-marker
       *ngIf="startPlace"
