@@ -56,7 +56,7 @@ export class PlacesListComponent implements OnInit {
       {
         origins: listPlaces.map(place => place.geometry.location),
         destinations: listPlaces.map(place => place.geometry.location),
-        travelMode: google.maps.TravelMode.DRIVING
+        travelMode: this.travelMode
       },
       distanceMatrix => {
         const routes = [];
