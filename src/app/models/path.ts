@@ -3,4 +3,5 @@ export class Path {
   routes: Route[];
   distance: number;
   duration: number;
+  travelMode: google.maps.TravelMode;
 }

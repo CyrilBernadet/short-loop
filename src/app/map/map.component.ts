@@ -61,7 +61,7 @@ export class MapComponent implements OnInit {
 
     directionsService.route(
       {
-        travelMode: google.maps.TravelMode.DRIVING,
+        travelMode: path.travelMode,
         origin: path.routes[0].origin.geometry.location,
         destination:
           path.routes[path.routes.length - 1].destination.geometry.location,

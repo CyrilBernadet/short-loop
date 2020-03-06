@@ -1,5 +1,15 @@
 <div>
   <div class="place-item title">
+    Mode de transport
+  </div>
+  <div class="place-item">
+    <a *ngFor="let item of travelModes" (click)="setTravelMode(item.mode)">
+      <mat-icon [class]="travelMode === item.mode ? 'selected' : null">{{
+        item.icon
+      }}</mat-icon></a
+    >
+  </div>
+  <div class="place-item title">
     Point de départ
   </div>
   <div class="place-item" *ngIf="start">
@@ -22,7 +32,11 @@
   <div class="button-panel" *ngIf="start && places && places.length">
     <button mat-raised-button (click)="compute()">
       Calculer
-      <mat-spinner *ngIf="isComputing"  class="load-spinner" diameter="20"></mat-spinner>
+      <mat-spinner
+        *ngIf="isComputing"
+        class="load-spinner"
+        diameter="20"
+      ></mat-spinner>
     </button>
   </div>
 </div>
