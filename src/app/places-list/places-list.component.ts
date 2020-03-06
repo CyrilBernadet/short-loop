@@ -92,7 +92,7 @@ export class PlacesListComponent implements OnInit {
       }
 
       paths.push({
-        path: path.map(route => {
+        routes: path.map(route => {
           return {
             origin: route.origin,
             destination: route.destination,

@@ -1,5 +1,5 @@
 <h1>Chemin le plus rapide :</h1>
-<div class="route" *ngFor="let route of path.path; let isFirst = first">
+<div class="route" *ngFor="let route of path.routes; let isFirst = first">
   <div *ngIf="isFirst">{{ route.origin.name }}</div>
   <div><mat-icon>arrow_downward</mat-icon> {{ route.duration | duration }}</div>
   <div>{{ route.destination.name }}</div>
