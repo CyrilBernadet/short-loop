@@ -1,4 +1,9 @@
-<h1>Chemin le plus rapide : </h1>
-<div *ngFor="let route of path.routes">
-  {{ route.origin.name }} => {{ route.destination.name }}
+<h1>Chemin le plus rapide :</h1>
+<div class="route" *ngFor="let route of path.routes; let isFirst = first">
+  <div *ngIf="isFirst">{{ route.origin.name }}</div>
+  <div><mat-icon>arrow_downward</mat-icon> {{ route.duration | duration }}</div>
+  <div>{{ route.destination.name }}</div>
+</div>
+<div class="total">
+  Temps de trajet total : {{ path.duration | duration }}
 </div>
