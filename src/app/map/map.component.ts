@@ -73,7 +73,6 @@ export class MapComponent implements OnInit {
         })
       },
       response => {
-        console.log(response);
         directionsRenderer.setDirections(response);
       }
     );
