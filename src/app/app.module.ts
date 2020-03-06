@@ -14,6 +14,7 @@ import { MapComponent } from './map/map.component';
 import { PathDisplayComponent } from './path-display/path-display.component';
 import { PlaceFinderComponent } from './place-finder/place-finder.component';
 import { PlacesListComponent } from './places-list/places-list.component';
+import { DurationPipe } from './common/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PlacesListComponent } from './places-list/places-list.component';
     MapComponent,
     PlaceFinderComponent,
     PlacesListComponent,
-    PathDisplayComponent
+    PathDisplayComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
