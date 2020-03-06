@@ -12,6 +12,18 @@
   .place-delete {
     cursor: pointer;
   }
+
+  .mat-icon {
+    cursor: pointer;
+    margin: 0 0.3vw;
+    padding: 0.2vh 0.2vw;
+  }
+
+  .selected {
+    color: #888888;
+    border: 1px solid #888888;
+    border-radius: 5px;
+  }
 }
 
 .title {

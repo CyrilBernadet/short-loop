@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Route } from '../models/route';
 import { Path } from '../models/path';
+import { Route } from '../models/route';
 
 @Component({
   selector: 'slp-places-list',
@@ -18,6 +18,22 @@ export class PlacesListComponent implements OnInit {
   @Output() pathsCompute: EventEmitter<Path> = new EventEmitter();
 
   isComputing = false;
+
+  travelModes = [
+    {
+      mode: google.maps.TravelMode.DRIVING,
+      icon: 'directions_car'
+    },
+    {
+      mode: google.maps.TravelMode.BICYCLING,
+      icon: 'directions_bike'
+    },
+    {
+      mode: google.maps.TravelMode.WALKING,
+      icon: 'directions_walk'
+    }
+  ];
+  travelMode: google.maps.TravelMode = google.maps.TravelMode.DRIVING;
 
   constructor() {}
 
@@ -40,7 +56,7 @@ export class PlacesListComponent implements OnInit {
       {
         origins: listPlaces.map(place => place.geometry.location),
         destinations: listPlaces.map(place => place.geometry.location),
-        travelMode: google.maps.TravelMode.DRIVING
+        travelMode: this.travelMode
       },
       distanceMatrix => {
         const routes = [];
@@ -68,6 +84,10 @@ export class PlacesListComponent implements OnInit {
         this.isComputing = false;
       }
     );
+  }
+
+  setTravelMode(travelMode: google.maps.TravelMode) {
+    this.travelMode = travelMode;
   }
 
   private _findPaths(routes: Route[]): Path[] {
@@ -101,7 +121,8 @@ export class PlacesListComponent implements OnInit {
           };
         }),
         duration: path.reduce((acc, cur) => acc + cur.duration.value, 0),
-        distance: path.reduce((acc, cur) => acc + cur.distance.value, 0)
+        distance: path.reduce((acc, cur) => acc + cur.distance.value, 0),
+        travelMode: this.travelMode
       });
     });
 
