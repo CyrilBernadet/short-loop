@@ -18,19 +18,20 @@
   </div>
 
   <google-map height="100vh" width="100vw" [center]="center">
-    <map-marker
-      *ngIf="startPlace"
-      [position]="startPlace.geometry.location"
-      [label]="startPlace.name"
-      [title]="startPlace.name"
-    >
-    </map-marker>
-    <map-marker
-      *ngFor="let marker of placesList"
-      [position]="marker.geometry.location"
-      [label]="marker.name"
-      [title]="marker.name"
-    >
-    </map-marker
+    <ng-container *ngIf="!shortestPath">
+      <map-marker
+        *ngIf="startPlace"
+        [position]="startPlace.geometry.location"
+        [label]="startPlace.name"
+        [title]="startPlace.name"
+      >
+      </map-marker>
+      <map-marker
+        *ngFor="let marker of placesList"
+        [position]="marker.geometry.location"
+        [label]="marker.name"
+        [title]="marker.name"
+      >
+      </map-marker></ng-container
   ></google-map>
 </div>

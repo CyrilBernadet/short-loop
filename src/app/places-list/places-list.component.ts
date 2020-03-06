@@ -92,7 +92,7 @@ export class PlacesListComponent implements OnInit {
       }
 
       paths.push({
-        path: path,
+        routes: path,
         duration: path.reduce((acc, cur) => acc + cur.duration.value, 0),
         distance: path.reduce((acc, cur) => acc + cur.distance.value, 0)
       });

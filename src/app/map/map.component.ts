@@ -1,7 +1,7 @@
-import { Path } from './../models/path';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { GoogleMap } from '@angular/google-maps';
+import { Path } from './../models/path';
 
 @Component({
   selector: 'slp-map',
@@ -51,5 +51,31 @@ export class MapComponent implements OnInit {
 
   pathsCompute(path: Path) {
     this.shortestPath = path;
+
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer({
+      draggable: true,
+      map: this.map._googleMap,
+      panel: document.getElementById('right-panel')
+    });
+
+    directionsService.route(
+      {
+        travelMode: google.maps.TravelMode.DRIVING,
+        origin: path.routes[0].origin.geometry.location,
+        destination:
+          path.routes[path.routes.length - 1].destination.geometry.location,
+        waypoints: path.routes.slice(1).map(route => {
+          return {
+            location: route.origin.geometry.location,
+            stopover: true
+          };
+        })
+      },
+      response => {
+        console.log(response);
+        directionsRenderer.setDirections(response);
+      }
+    );
   }
 }

@@ -1,6 +1,6 @@
 import { Route } from './route';
 export class Path {
-  path: Route[];
+  routes: Route[];
   distance: number;
   duration: number;
 }
